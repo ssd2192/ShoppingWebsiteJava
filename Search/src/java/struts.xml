@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <include file="struts-default.xml"/>
+    <package name="xyz"  extends="struts-default">
+
+  <!--      <action name="ulogin" class="com.LoginAction">
+            <result name="success">/welcome.jsp</result>
+            <result name="error">/UserError.jsp</result>
+            <result name="input">/login.jsp</result>       
+        </action>
+        
+        
+        
+        <action name="uregaction" class="com.UserRegisterAction">
+            <result name="success">/index.jsp</result>
+            <result name="error">/Error.jsp</result>
+            <result name="input">/register.jsp</result>
+        </action>
+   -->
+   <!--     <action name="action3" class="category.AddCategoryAction">
+            <result name="success">/CatAddSuccess.jsp</result>
+            <result name="error">/Error.jsp</result>
+            <result name="input">/AddCategory.jsp</result>
+        </action>
+        <action name="cat" class="DAO.UserListaccessoriesAction">
+            <result name="success">/Category.jsp</result>
+            <result name="error">/Error.jsp</result>
+            <result name="input">/AddCategory.jsp</result>
+        </action>
+        <action name="viewcat" class="category.UserListAction">
+            <result name="success">/ViewCategory.jsp</result>
+            <result name="error">/Error.jsp</result>
+            <result name="input">/AddCategory.jsp</result>
+        </action>   
+        <action name="browsecat" class="category.UserListAction">
+            <result name="success">/EditCategory.jsp</result>
+            <result name="error">/Error.jsp</result>
+         <result name="input">/EditCategory.jsp</result>
+        </action>  
+         <action name="editcat" class="category.EditCategoryAction">
+            <result name="success">/CatAddSuccess.jsp</result>
+            <result name="error">/Error.jsp</result>
+            <result name="input">/EditCategoryError.jsp</result>
+        </action>     -->
+        
+       
+     <!-- Admin Actions -->   
+        <action name="adminlogin" class="admin.AdminLoginAction">
+            <result name="success">/Adminhome.jsp</result>
+            <result name="error">/AdminError.jsp</result>
+            <result name="input">/HomeAdmin.jsp</result>       
+        </action> 
+       
+        <action name="LogoutAction" class="admin.LogoutAction" >
+            <result name="success" type="redirect">checkLogin.jsp</result>
+        </action> 
+        
+        <action name="addpro" class="product.AddProductAction">
+             <interceptor-ref name="fileUpload">
+		<param name="maximumSize">2097152</param>
+                <param name="allowedTypes">
+		image/png,image/gif,image/jpeg,image/pjpeg,image/jpg,image/JPG
+		</param>
+	     </interceptor-ref>
+	     <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success">/Success.jsp</result>
+            <result name="error">/Error.jsp</result>
+            <result name="input">/AddProduct.jsp</result> 
+        </action> 
+        <action name="editpro" class="product.EditProductAction">
+            <interceptor-ref name="fileUpload">
+		<param name="maximumSize">2097152</param>
+                <param name="allowedTypes">
+		image/png,image/gif,image/jpeg,image/pjpeg,image/jpg,image/JPG
+		</param>
+	     </interceptor-ref>
+	     <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success">/Success.jsp</result>
+            <result name="error">/Error.jsp</result>
+             <result name="input">/EditProduct.jsp</result>
+        </action>
+        <action name="deletepro" class="product.DeleteProductAction">
+            <result name="success">/Success.jsp</result>
+            <result name="error">/Error.jsp</result>
+            <result name="input">/DeleteProduct.jsp</result>
+        </action>
+        
+        <action name="addadmin" class="admin.AdminRegisterAction">
+            <result name="success">/Success.jsp</result>
+            <result name="error">/Error.jsp</result>
+            <result name="input">/AddAdmin.jsp</result>
+        </action>
+        
+        <action name="BagsAdminAct" class="DAO.UserListBagsAction">
+            <result name="success">/BagsAdmin.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="WatchAdminAct" class="DAO.UserListWatchesAction">
+            <result name="success">/WatchesAdmin.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="SunglassAdminAct" class="DAO.UserListSunglassesAction">
+            <result name="success">/SunglassesAdmin.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+       
+        <action name="adminorderact" class="Order.UserListOrderAction">
+            <result name="success">/AdminViewOrder.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="orderstatusact" class="Order.AddOrderStatusAction">
+            <result name="success">/Success.jsp</result>
+            <result name="error">/Error.jsp</result>
+            <result name="input">/AdminViewOrder.jsp</result>
+        </action>
+        
+        <action name="logout" class="admin.LogoutAction" method="execute">
+            <result name="logout">/home.jsp</result>
+        </action>
+        <!-- End Admin Actions--> 
+        <!-- watches actions--> 
+        <action name="allprowatchact" class="DAO.UserListAllWatchAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="Gentsact" class="DAO.UserListGentsAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>  
+        <action name="Ladiesact" class="DAO.UserListLadiesAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>  
+        <action name="NewLinesact" class="DAO.UserListNewLinesAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="casioact" class="DAO.UserListCasioAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="fastrackact" class="DAO.UserListFastrackAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="fossilact" class="DAO.UserListFossilAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="thact" class="DAO.UserListTommyAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="titanact" class="DAO.UserListTitanAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="burgact" class="DAO.UserListBurgAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="citizenact" class="DAO.UserListCitizenAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="dgact" class="DAO.UserListDnGAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="policeact" class="DAO.UserListpoliceAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="qqact" class="DAO.UserListQnQAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="rate1wact" class="DAO.UserListRateOneWatchAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="rate2wact" class="DAO.UserListRateTwoWatchAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="rate3wact" class="DAO.UserListRateThreeWatchAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="rate4wact" class="DAO.UserListRateFourWatchAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="rate5wact" class="DAO.UserListRateFiveWatchAction">
+            <result name="success">/ProductList.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <!-- end watches actions-->
+        <!-- Bags actions-->
+        <action name="allbagact" class="DAO.UserListAllBagsAction">
+            <result name="success">/ProductListBagsUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="shoulderact" class="DAO.UserListShoulderAction">
+            <result name="success">/ProductListBagsUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="clutchesact" class="DAO.UserListClutchesAction">
+            <result name="success">/ProductListBagsUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="walletact" class="DAO.UserlistWalletAction">
+            <result name="success">/ProductListBagsUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="malebagact" class="DAO.UserListGentsBagAction">
+            <result name="success">/ProductListBagsUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="femalebagact" class="DAO.UserListLadiesBagAction">
+            <result name="success">/ProductListBagsUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="pumaact" class="DAO.UserListPumaAction">
+            <result name="success">/ProductListBagsUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="nikeact" class="DAO.UserListNikeAction">
+            <result name="success">/ProductListBagsUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="capreseact" class="DAO.UserListCapreseAction">
+            <result name="success">/ProductListBagsUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="rate1bact" class="DAO.UserListRateOneBagAction">
+            <result name="success">/ProductListBagsUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="rate2bact" class="DAO.UserListRateTwoBagAction">
+            <result name="success">/ProductListBagsUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <!-- End bags actions-->
+        
+        <!-- Sunglass actions-->
+        <action name="allproglassact" class="DAO.UserListAllSunglassAction">
+            <result name="success">/ProductListSunglassesUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="aviatorsact" class="DAO.UserListAviatorsAction">
+            <result name="success">/ProductListSunglassesUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="rimlessact" class="DAO.UserListRimlessAction">
+            <result name="success">/ProductListSunglassesUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="maleglassact" class="DAO.UserListGentsSungalssAction">
+            <result name="success">/ProductListSunglassesUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="femaleglassact" class="DAO.UserListLadiesGlassAction">
+            <result name="success">/ProductListSunglassesUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="raybanact" class="DAO.UserListRaybanAction">
+            <result name="success">/ProductListSunglassesUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="tagact" class="DAO.UserListTagAction">
+            <result name="success">/ProductListSunglassesUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="playboyact" class="DAO.UserListPlayboyAction">
+            <result name="success">/ProductListSunglassesUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="rate1gact" class="DAO.UserListRateOneGlassAction">
+            <result name="success">/ProductListSunglassesUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <action name="rate2gact" class="DAO.UserListRateTwoGlassAction">
+            <result name="success">/ProductListSunglassesUser.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+        <!-- End sunglass actions-->
+        <!-- Check Order Status actions-->
+        <action name="uservieworder" class="Order.UserListCustomerOrderAction">
+            <result name="success">/homebelow.jsp</result>
+            <result name="input">/homebelow.jsp</result>
+        </action>
+        <!-- End Check Order Status actions--> 
+        <!-- Buy actions-->
+         <action name="buyact" class="Order.UserListBuyAction">
+            <result name="success">/Buy.jsp</result>
+        </action>
+        <action name="checkoutact" class="Order.UserListBuyAction">
+            <result name="success">/Checkout.jsp</result>
+        </action> 
+        <action name="finalbuyact" class="Order.AddAddressAction">
+            <result name="success">/Pay.jsp</result>
+            <result name="input">/Checkout.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+         <action name="CODact" class="Order.CODAction">
+            <result name="success">/Thanku.jsp</result>
+            <result name="input">/Pay.jsp</result>
+         </action> 
+        <action name="debitact" class="Order.DebitAction">
+            <result name="success">/Thanku.jsp</result>
+            <result name="input">/Pay.jsp</result>
+         </action>
+        <!-- End Buy actions-->
+    </package>
+</struts>
